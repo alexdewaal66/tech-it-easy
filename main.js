@@ -170,4 +170,44 @@ function setTime() {
 
 setTime();
 
+// opdracht 1a
+function countItemsToSell() {
+  let total = 0;
+  for (const item of inventory) {
+    total += item.originalStock - item.sold;
+  }
+  return total;
+}
+
+// opdracht 1b
+itemsLeft = document.getElementById("items-to-sell-amount");
+itemsLeft.innerText = countItemsToSell();
+
+// opdracht 2a
+const tvTypes = inventory.map((item) => item.type);
+console.log(`tvTypes:`, tvTypes);
+
+// opdracht 2b
+const tvsSoldOut = inventory.filter((item) => item.sold === item.originalStock);
+console.log(`tvsSoldOut:`, tvsSoldOut);
+
+// opdracht 2c
+const ambiLightModels = inventory.filter((item) => item.options.ambiLight);
+console.log(`ambiLightModels:`, ambiLightModels);
+
+// opdracht 2d
+function sortByPrice() {
+  inventory.sort((a, b) => a.price - b.price );
+}
+
+sortByPrice();
+console.log(`sorted inventory:`, inventory);
+
+// opdracht 3a
+const reducer = (amount, item) => amount + item.price * (item.originalStock - item.sold) ;
+proceedsTarget  = inventory.reduce( reducer, 0 );
+console.log(`proceedsTarget:`, proceedsTarget);
+
+target = document.getElementById("proceeds-target-amount");
+target.innerText = proceedsTarget;
 
