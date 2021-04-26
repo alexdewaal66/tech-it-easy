@@ -161,3 +161,13 @@ const inventory = [
     sold: 8,
   },
 ];
+
+function setTime() {
+  const timePar = document.getElementById("time");
+  const date = new Date();
+  timePar.innerText = date.toLocaleTimeString();
+}
+
+setTime();
+
+
