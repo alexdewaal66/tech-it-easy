@@ -278,3 +278,41 @@ tvEl.appendChild(tvPriceEl);
 tvEl.appendChild(tvSizesEl);
 
 document.body.appendChild(tvEl);
+
+// opdracht 5e
+function appendline(text, node) {
+    const el = document.createElement('p');
+    el.setAttribute('class', 'line')
+    el.innerText = text;
+    node.appendChild(el);
+}
+
+function displayTv(tv, node) {
+    const tvEl = document.createElement('div');
+    tvEl.setAttribute('class', 'tv'); //  + inventory.indexOf(tv)
+
+    appendline(summarizeTv(tv), tvEl);
+    appendline(formatPrice(tv.price), tvEl);
+    appendline(formatTvSizes(tv), tvEl);
+
+    node.appendChild(tvEl);
+}
+
+const tvContainer = document.createElement('div');
+tvContainer.setAttribute('class', 'items-container')
+document.body.appendChild(tvContainer);
+
+function displayAllTvs(tvs, node) {
+    // node.innerHTML = ''; // in case of re-display
+    for (const tv of tvs) {
+        displayTv(tv, node);
+    }
+}
+
+displayAllTvs(inventory, tvContainer);
+
+// Bonusopdracht
+// Sorteer op
+//      prijs : tvsSoldOut
+//      AmbiLight TV's : ambiLightModels
+//      Uitverkochte exemplaren : inventory
