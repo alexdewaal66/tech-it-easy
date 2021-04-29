@@ -162,13 +162,12 @@ const inventory = [
   },
 ];
 
-function setTime() {
-  const timePar = document.getElementById("time");
-  const date = new Date();
-  timePar.innerText = date.toLocaleTimeString();
+function setLoadTime() {
+  const timeEl = document.getElementById("load-time");
+  timeEl.innerText = new Date().toLocaleTimeString();
 }
 
-setTime();
+setLoadTime();
 
 // opdracht 1a
 function countItemsToSell() {
@@ -204,10 +203,22 @@ sortByPrice();
 console.log(`sorted inventory:`, inventory);
 
 // opdracht 3a
-const reducer = (amount, item) => amount + item.price * (item.originalStock - item.sold) ;
-proceedsTarget  = inventory.reduce( reducer, 0 );
+const reducer3a = (amount, item) => amount + item.price * (item.originalStock - item.sold) ;
+const proceedsTarget  = inventory.reduce( reducer3a, 0 );
 console.log(`proceedsTarget:`, proceedsTarget);
 
-target = document.getElementById("proceeds-target-amount");
-target.innerText = proceedsTarget;
+const proceedsTargetEl = document.createElement('p');
+proceedsTargetEl.setAttribute('id', 'proceeds-target');
+proceedsTargetEl.innerText = `Doel opbrengst: ${proceedsTarget}`;
+document.body.appendChild(proceedsTargetEl);
+
+// opdracht 3b
+const reducer3b = (amount, item) => amount + item.price * item.sold;
+const proceedsCurrent = inventory.reduce( reducer3b, 0);
+console.log(`proceedsCurrent:`, proceedsCurrent);
+
+const proceedsCurrentEl = document.createElement('p');
+proceedsCurrentEl.setAttribute('id', 'proceeds-current');
+proceedsCurrentEl.innerText = `Huidige opbrengst: ${proceedsCurrent}`;
+document.body.appendChild(proceedsCurrentEl);
 
