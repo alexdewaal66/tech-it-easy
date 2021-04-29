@@ -231,3 +231,18 @@ tvType2.innerText = inventory[1].type;
 document.body.appendChild(tvType1);
 document.body.appendChild(tvType2);
 
+// opdracht 5a
+function summarizeTv(tv) {
+  return tv.brand + ' ' + tv.type + ' - ' + tv.name;
+}
+
+console.log(`summarizeTv(inventory[0]):`, summarizeTv(inventory[0]));
+console.log(`summarizeTv(inventory[1]):`, summarizeTv(inventory[1]));
+
+// opdracht 5b
+function formatPrice(price) {
+  return '€' + price.toFixed(0) + ',-';
+}
+
+console.log(`formatPrice(inventory[0].price):`, formatPrice(inventory[0].price));
+
