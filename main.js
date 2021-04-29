@@ -254,9 +254,27 @@ function formatSize(sizeInch) {
 
 function formatTvSizes(tv) {
     return tv.availableSizes
-        .map( (size) => formatSize(size) )
+        .map((size) => formatSize(size))
         .join(' | ');
 }
 
 console.log(`formatTvSizes(inventory[1]):`, formatTvSizes(inventory[1]));
 console.log(`formatTvSizes(inventory[5]):`, formatTvSizes(inventory[5]));
+
+// opdracht 5d
+const tv = inventory[5];
+const tvEl = document.createElement('div');
+
+const tvSummaryEl = document.createElement('p');
+const tvPriceEl = document.createElement('p');
+const tvSizesEl = document.createElement('p');
+
+tvSummaryEl.innerText = summarizeTv(tv);
+tvPriceEl.innerText = formatPrice(tv.price);
+tvSizesEl.innerText = formatTvSizes(tv);
+
+tvEl.appendChild(tvSummaryEl);
+tvEl.appendChild(tvPriceEl);
+tvEl.appendChild(tvSizesEl);
+
+document.body.appendChild(tvEl);
