@@ -222,3 +222,12 @@ proceedsCurrentEl.setAttribute('id', 'proceeds-current');
 proceedsCurrentEl.innerText = `Huidige opbrengst: ${proceedsCurrent}`;
 document.body.appendChild(proceedsCurrentEl);
 
+// opdracht 4
+const tvType1 = document.createElement('p');
+tvType1.innerText = inventory[0].type;
+const tvType2 = document.createElement('p');
+tvType2.innerText = inventory[1].type;
+
+document.body.appendChild(tvType1);
+document.body.appendChild(tvType2);
+
