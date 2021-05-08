@@ -56,7 +56,6 @@ function appendRadioLikeButton(text, handler, node) {
 
 export {
     setLoadTime,
-    UUID,
     createButtonGroup,
     appendRadioLikeButton
 };
