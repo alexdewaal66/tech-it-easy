@@ -1,3 +1,5 @@
+import {setLoadTime, createButtonGroup, appendRadioLikeButton} from './utils.js';
+
 // VOORRAAD ARRAY MET TV'S
 const inventory = [
     {
@@ -162,10 +164,7 @@ const inventory = [
     },
 ];
 
-function setLoadTime() {
-    const timeEl = document.getElementById("load-time");
-    timeEl.innerText = new Date().toLocaleTimeString();
-}
+
 
 setLoadTime();
 
@@ -179,8 +178,8 @@ function countItemsToSell() {
 }
 
 // opdracht 1b
-itemsLeft = document.getElementById("items-to-sell-amount");
-itemsLeft.innerText = countItemsToSell();
+const itemsLeft = document.getElementById("items-to-sell-amount");
+itemsLeft.innerText = countItemsToSell().toString();
 
 // opdracht 2a
 const tvTypes = inventory.map((item) => item.type);
@@ -195,11 +194,11 @@ const ambiLightModels = inventory.filter((item) => item.options.ambiLight);
 console.log(`ambiLightModels:`, ambiLightModels);
 
 // opdracht 2d
-function sortByPrice() {
-    inventory.sort((a, b) => a.price - b.price);
+function sortByPrice(list) {
+    list.sort((a, b) => a.price - b.price);
 }
 
-sortByPrice();
+sortByPrice(inventory);
 console.log(`sorted inventory:`, inventory);
 
 // opdracht 3a
@@ -248,7 +247,7 @@ console.log(`formatPrice(inventory[0].price):`, formatPrice(inventory[0].price))
 
 // opdracht 5c
 function formatSize(sizeInch) {
-    sizeCm = (2.54 * sizeInch).toFixed(0);
+    const sizeCm = (2.54 * sizeInch).toFixed(0);
     return `${sizeInch} inch (${sizeCm} cm)`;
 }
 
@@ -303,7 +302,7 @@ tvContainer.setAttribute('class', 'items-container')
 document.body.appendChild(tvContainer);
 
 function displayAllTvs(tvs, node) {
-    // node.innerHTML = ''; // in case of re-display
+    node.innerHTML = ''; // in case of re-display
     for (const tv of tvs) {
         displayTv(tv, node);
     }
@@ -313,6 +312,31 @@ displayAllTvs(inventory, tvContainer);
 
 // Bonusopdracht
 // Sorteer op
-//      prijs : tvsSoldOut
+//      prijs : inventory
 //      AmbiLight TV's : ambiLightModels
-//      Uitverkochte exemplaren : inventory
+//      Uitverkochte exemplaren :tvsSoldOut
+
+
+const buttonContainer = createButtonGroup('tv-selection');
+document.body.insertBefore(buttonContainer, tvContainer);
+
+
+appendRadioLikeButton('Sorteer op prijs', priceHandler, buttonContainer);
+appendRadioLikeButton('AmbiLight TV\'s', ambilightHandler, buttonContainer);
+appendRadioLikeButton('Uitverkocht', soldOutHandler, buttonContainer);
+
+function priceHandler() {
+    sortByPrice(inventory);
+    console.log('inventory:', inventory);
+    displayAllTvs(inventory, tvContainer);
+}
+
+function ambilightHandler() {
+    console.log('ambiLightModels:', ambiLightModels);
+    displayAllTvs(ambiLightModels, tvContainer);
+}
+
+function soldOutHandler() {
+    console.log('tvsSoldOut:', tvsSoldOut);
+    displayAllTvs(tvsSoldOut, tvContainer);
+}

@@ -30,3 +30,16 @@
 .tv p {
     margin: 0;
 }
+
+/* Bonusopdracht */
+button {
+    margin: 1em;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]:checked + button {
+    background-color: lightgray;
+}
