@@ -47,7 +47,7 @@ Check bij de pseudo-antwoorden of je geen stappen overgeslagen hebt. Begin dan p
 #### Opdracht 3
 * **Opdracht 3a:** Wat is onze doel-opbrengst?
 Bereken wat de totale opbrengst is, als we alle exemplaren van ieder type zouden verkopen. Geef dit in het **blauw** weer op de pagina.
-* **Opdracht 6b:** Hoeveel hebben we tot nu toe verdient?
+* **Opdracht 3b:** Hoeveel hebben we tot nu toe verdient?
 Bereken hoeveel we tot nu toe verdient hebben met het aantal verkochte tv's. Geef dit weer in het **groen** weer op de pagina
 
 #### Opdracht 4

@@ -1,0 +1,45 @@
+/* opdracht 1b */
+#items-to-sell {
+    color: red;
+}
+
+/* opdracht 3a */
+#proceeds-target {
+    color: blue;
+}
+
+/* opdracht 3b */
+#proceeds-current {
+    color: green;
+}
+
+
+/* opdracht 5e */
+.items-container {
+    background-color: grey;
+    color: white;
+    padding: 1em;
+    width: fit-content;
+}
+
+.tv {
+    font-family: sans-serif;
+    margin-bottom: 1em;
+}
+
+.tv p {
+    margin: 0;
+}
+
+/* Bonusopdracht */
+button {
+    margin: 1em;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]:checked + button {
+    background-color: lightgray;
+}
